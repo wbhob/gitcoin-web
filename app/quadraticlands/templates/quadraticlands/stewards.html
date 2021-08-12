@@ -18,36 +18,82 @@
     <div class="wrapper">
 
       {% for key, steward in stewards.items %}
+      <div>
+        <div class="steward-card {% if selected %} selected {% endif %} " id="{{key}}" data-kinetics-attraction
+          data-kinetics-attraction-chance=".3" data-kinetics-attraction-force="1.1" data-kinetics-attraction-grow="7">
 
-      <div class="steward-card {% if selected %} selected {% endif %} " data-kinetics-attraction
-        data-kinetics-attraction-chance=".3" data-kinetics-attraction-force="1.1" data-kinetics-attraction-grow="7">
-
-        <div class="steward">
-          <figure>
-            {% if steward.custom_steward_img %}
+          <div class="steward">
+            <figure>
+              {% if steward.custom_steward_img %}
               <img src="{{ steward.custom_steward_img.url }}">
-            {% else %}
+              {% else %}
               <img src="/dynamic/avatar/{{ steward.profile }}">
-            {% endif %}
-          </figure>
-          <div class="text">
-            <div class="name">{{ steward.real_name | safe }}</div>
-            <div class="description">{{ steward.profile_link | safe }}</div>
-            <div class="selected">will be your delegate</div>
+              {% endif %}
+            </figure>
+            <div class="text">
+              <div class="name">{{ steward.real_name | safe }}</div>
+              <div class="description">{{ steward.profile_link | safe }}</div>
+              <div class="selected">will be your delegate</div>
+            </div>
           </div>
-        </div>
 
-        <div class="steward-details">
-          <div class="wrapper">
-            <a class="btn" target="_blank" href="{{ steward.bio | safe }}">Info's</a>
-            <a class="btn purple button-steward-select" data-address="{{ steward.gtc_address | safe }}">Delegate</a>
+          <div class="steward-details" id="{{key}}">
+            <div class="health-wrapper">
+              <div class="health health-on"></div>
+              <div class="health health-on"></div>
+              <div class="health health-on"></div>
+              <div class="health health-on"></div>
+              <div class="health health-on"></div>
+              <div class="health health-on"></div>
+              <div class="health"></div>
+              <div class="health"></div>
+              <div class="health"></div>
+              <div class="health"></div>
+            </div>
+            <div class="stats-list">
+              <ul>
+                <li>
+                  <img src="{% static "v2/images/quadraticlands/stewards/user.svg" %}" alt="user icon">
+                  <span>Steward since</span>
+                  <div class="flex-grow"></div>
+                  <span>2021-07-01</span>
+                </li>
+                <li>
+                  <img src="{% static "v2/images/quadraticlands/stewards/message.svg" %}" alt="user icon">
+                  <span>Forum posts</span>
+                  <div class="flex-grow"></div>
+                  <span>145</span>
+                </li>
+                <li>
+                  <img src="{% static "v2/images/quadraticlands/stewards/user.svg" %}" alt="user icon">
+                  <span>Delegators</span>
+                  <div class="flex-grow"></div>
+                  <span>719</span>
+                </li>
+                <li>
+                  <img src="{% static "v2/images/quadraticlands/stewards/message.svg" %}" alt="user icon">
+                  <span>Voting power</span>
+                  <div class="flex-grow"></div>
+                  <span>10%</span>
+                </li>
+                <li>
+                  <img src="{% static "v2/images/quadraticlands/stewards/bolt.svg" %}" alt="user icon">
+                  <span>Vote participation</span>
+                  <div class="flex-grow"></div>
+                  <span>75%</span>
+                </li>
+              </ul>
+            </div>
+            <div class="wrapper">
+              <a class="btn" target="_blank" href="{{ steward.bio | safe }}">Statement</a>
+              <a class="btn purple button-steward-select" data-address="{{ steward.gtc_address | safe }}">Delegate</a>
+            </div>
           </div>
+
         </div>
 
       </div>
-
-      {% endfor %}
-
+        {% endfor %}
     </div>
   </section>
 

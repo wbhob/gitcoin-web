@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', function() {
   // all stewards cards
   const stewards = document.querySelectorAll('.steward-card');
 
+  stewards.forEach(steward => {
+    $(`.steward-details#${steward.id}`).slideUp(1);
+  });
+
+  stewards.forEach(steward => {
+    steward.addEventListener('click', () => {
+      console.log('clicked: ', steward.id);
+      stewards.forEach(steward => {
+        $(`.steward-details#${steward.id}`).slideUp();
+      });
+
+      $(`.steward-details#${steward.id}`).slideDown();
+    })
+  });
+
   // get all delegate buttons
   const btnStewardSelect = document.querySelectorAll('.button-steward-select');
 

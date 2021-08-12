@@ -76,18 +76,62 @@ section.stewards {
   .steward-details {
     display: grid;
     margin: auto;
-    background-color: #0e0333ee;
+    padding: 1rem 1.5rem;
+    // background-color: #0e0333ee;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
+    // opacity: 0;
+
+    div.health-wrapper {
+      display:flex;
+      margin-bottom:1rem;
+      align-items: center;
+      justify-content: flex-start;
+      div.health {
+        width: 4px;
+        height: 1.5rem;
+        margin-right:8px;
+        background: var(--aqua_dark);
+        opacity:0.5;
+      }
+
+      div.health.health-on {
+        opacity:1;
+        background: var(--aqua);
+      }
+    }
+
+    div.stats-list {
+      ul {
+        list-style-type: none;
+        li {
+          display:flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-bottom:0.75rem;
+          img  {
+            width: 2rem;
+            flex:none;
+            margin-right:0.5rem;
+          }
+          span {
+            flex:none;
+          }
+        }
+        div.flex-grow {
+          flex: 1 0;
+        }
+      }
+    }
 
     div.wrapper {
-      display: block;
-      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      // margin: auto;
     }
 
     .btn {
